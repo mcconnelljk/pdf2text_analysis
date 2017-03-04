@@ -1,0 +1,21 @@
+import PyPDF2
+
+pdfFileObj = open('filePath.pdf', 'rb')
+
+pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+pdfReader.numPages
+
+pageObj = pdfReader.getPage(0)
+pageObj.extractText()
+
+newPage = pageObj.extractText()
+print(newPage)
+
+for pageObj in pdfReader.pages:
+    print(newPage)
+
+newText = open('enterFilePath.txt', 'w')
+for pageObj in pdfReader.pages:
+    newText.write(newPage)
+
+newText.close()
